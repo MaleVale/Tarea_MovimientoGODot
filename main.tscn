@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnwqyjogsns6n"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_1s0r2"]
+[ext_resource type="Texture2D" uid="uid://crd1ssg5dvmnv" path="res://icon.svg" id="2_6hffi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w1fkv"]
+radius = 79.0
+height = 158.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dqk1"]
+size = Vector2(129, 609.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oak55"]
+size = Vector2(164.5, 284.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5hir"]
+size = Vector2(2898.75, 72)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_1s0r2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(210, 466)
+shape = SubResource("CapsuleShape2D_w1fkv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/CollisionShape2D"]
+texture = ExtResource("2_6hffi")
+
+[node name="Plataforma" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Plataforma"]
+position = Vector2(-2, 268)
+shape = SubResource("RectangleShape2D_3dqk1")
+debug_color = Color(0.164398, 0.585449, 0.735256, 0.42)
+
+[node name="ColorRect" type="ColorRect" parent="Plataforma/CollisionShape2D2"]
+offset_left = -78.0
+offset_top = -291.0
+offset_right = 53.0
+offset_bottom = 298.0
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Plataforma"]
+position = Vector2(830, 452)
+shape = SubResource("RectangleShape2D_oak55")
+
+[node name="ColorRect" type="ColorRect" parent="Plataforma/CollisionShape2D3"]
+offset_left = -87.0
+offset_top = -146.0
+offset_right = 89.0
+offset_bottom = 119.0
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Plataforma"]
+position = Vector2(1171, 306)
+shape = SubResource("RectangleShape2D_3dqk1")
+
+[node name="ColorRect" type="ColorRect" parent="Plataforma/CollisionShape2D4"]
+offset_left = -64.0
+offset_top = -310.0
+offset_right = 61.0
+offset_bottom = 288.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma"]
+position = Vector2(952, 612)
+shape = SubResource("RectangleShape2D_u5hir")
+
+[node name="ColorRect" type="ColorRect" parent="Plataforma/CollisionShape2D"]
+offset_left = -1445.0
+offset_top = -59.0
+offset_right = 1450.0
+offset_bottom = 37.0
